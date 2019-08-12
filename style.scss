@@ -17,9 +17,11 @@ body{
     font-family: 'Lexend Exa', sans-serif;
     color: $dark-font-color;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 nav{
     height: 3em;
+    width: 100%;
     background-color: $dark-color;
     color: $bright-font-color;
     display: flex;
@@ -27,15 +29,37 @@ nav{
     justify-content: space-between;
     align-items: center;
     padding: 5px;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    z-index: 5;
+    border-bottom: 2px solid #0eb1d2;
 }
 a, a:visited, a:active{
     color: $bright-font-color;
     text-decoration: none;
+    transition: color 0.3s;
 }
 a:hover, a:focus{
-    text-decoration: underline;
+    color: white;
+}
+a:hover::after, a:focus::after{
+    width: 100%; 
+    left: 0; 
+}
+a::after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+#main-icon{
+ margin-left: 2vw;   
 }
 #nav-links{
     display: flex;
@@ -46,14 +70,41 @@ a:hover, a:focus{
 }
 #hamburger{
     display: none;
+    margin-right: 5vw;
+}
+.dropdown{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: $dark-color;
+    border-left: 2px solid #0eb1d2;
+    border-bottom: 2px solid #0eb1d2;
+    width: 40%;
+    padding: 30px;
+    transition: right 0.3s ease-in-out;
+}
+.dropdown > a{
+    display: block;
+    text-align: center;
 }
 #intro{
     height: calc(100vh - 3em);
-    background-color: $main-color;
+    background: linear-gradient(60deg, $main-color, $dark-color);
+    background-size: 150%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    position: relative;
+}
+#intro::after{
+    content: "";
+    position: absolute;
+    top: 73%;
+    left: -10;
+    background: url(aaa2.svg) no-repeat;
+    width: 120%;
+    height: 50%;
 }
 .introduction{
     display: flex;
@@ -63,25 +114,26 @@ a:hover, a:focus{
 .text{
     margin-right: 50px;
 }
-#intro > ul{
+.links{
     display: flex;
+    padding-bottom: 7em;
 }
 #intro > ul > li{
     margin: 10px;
     list-style-type: none;
 }
 #portrait{
-    height: 200px;
-    width: 200px;
+    height: 15vw;
+    width: 15vw;
     border-radius: 50%;
     border: 5px solid $dark-color;
 }
 #projects{
+    padding-top: 5rem;
     height: 100vh;
-    background-color: $grayish-color;
+    background-color: ($grayish-color);
     display: grid;
-    grid-template-columns: repeat(4, minmax(400px, 1fr));
-    grid-gap: 10px;
+    grid-template-columns: repeat(3, minmax(400px, 1fr));
     justify-content: center;
     align-content: space-evenly;
 }
@@ -90,22 +142,56 @@ a:hover, a:focus{
     max-height: 300px;
     width: 30vw;
     max-width: 400px;
-    box-shadow: 2px 2px 5px black;
     text-align: center;
     margin: auto;
 }
 .card-preview{
     height: 70%;
-    
+    border: 3px solid $dark-color;
+    box-shadow: 3px 3px 10px black;
+    position: relative;
+}
+.card-preview:hover::after{
+    height: 100%;
+    left: 0;
+}
+.card-preview:hover{
+    color: $bright-font-color;
+}
+.card-preview::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    transition: height 0.3s;
+}
+.card-preview > a{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    z-index: 5;
 }
 .card-description{
-    height: 30%;
+    min-height: 30%;
     color: $bright-font-color;
     background-color: $dark-color;
+    position: relative;
+}
+.card-description::after{
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0px;
+    background: url(bbb.svg) no-repeat;
+    height: 70%;
+    width: 100%;
 }
 #contacts{
-    height: 50vh;
-    background-color: $yellowish-color;
+    height: 40vh;
+    background: linear-gradient(60deg, $dark-color, $yellowish-color 40%) ;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,21 +200,45 @@ a:hover, a:focus{
 
 /*Media queries for different displays*/
 @media only screen and (max-width: 1024px){
+    #intro::after{
+        top: 85%;
+        height: 30%;
+    }
     #projects{
+        height: auto;
+        padding: 8em 0 4em;
         grid-template-columns: repeat(2, minmax(400px, 1fr));
+        grid-row-gap: 20vh;
+    }
+    .card-description::after{
+        top: 98%; 
     }
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 764px){
+    #intro::after{
+        top: 89%;
+    }
+    .introduction{
+        padding-top: 3em;
+        flex-direction: column-reverse;
+    }
+    .links{
+        flex-direction: column;
+    }
     #projects{
         grid-template-columns: 1fr;
+        grid-row-gap: 20vh;
         height: auto;
-        padding: 4em 0 4em;
+        padding: 5em 0 4em;
     }
     #nav-links{
         display: none;
     }
     #hamburger{
         display: block;
+    }
+    .card{
+        width: 90%;
     }
 }
