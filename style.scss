@@ -1,0 +1,134 @@
+$dark-color: #2b4141;
+$main-color: #0eb1d2;
+$light-color: #34e4ea;
+$grayish-color: #8ab9b5;
+$yellowish-color: #c8c2ae;
+$dark-font-color: #313131;
+$bright-font-color: #d6d6d6;
+
+*{
+    padding: 0;
+    margin: 0;
+}
+::-webkit-scrollbar-thumb{
+    color: $dark-color;
+}
+body{
+    font-family: 'Lexend Exa', sans-serif;
+    color: $dark-font-color;
+    scroll-behavior: smooth;
+}
+nav{
+    height: 3em;
+    background-color: $dark-color;
+    color: $bright-font-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    position: sticky;
+    top: 0;
+}
+a, a:visited, a:active{
+    color: $bright-font-color;
+    text-decoration: none;
+}
+a:hover, a:focus{
+    text-decoration: underline;
+}
+#nav-links{
+    display: flex;
+    list-style-type: none;
+}
+#nav-links > *{
+    margin-right: 5vw;
+}
+#hamburger{
+    display: none;
+}
+#intro{
+    height: calc(100vh - 3em);
+    background-color: $main-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.introduction{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.text{
+    margin-right: 50px;
+}
+#intro > ul{
+    display: flex;
+}
+#intro > ul > li{
+    margin: 10px;
+    list-style-type: none;
+}
+#portrait{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 5px solid $dark-color;
+}
+#projects{
+    height: 100vh;
+    background-color: $grayish-color;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(400px, 1fr));
+    grid-gap: 10px;
+    justify-content: center;
+    align-content: space-evenly;
+}
+.card{
+    height: 30vh;
+    max-height: 300px;
+    width: 30vw;
+    max-width: 400px;
+    box-shadow: 2px 2px 5px black;
+    text-align: center;
+    margin: auto;
+}
+.card-preview{
+    height: 70%;
+    
+}
+.card-description{
+    height: 30%;
+    color: $bright-font-color;
+    background-color: $dark-color;
+}
+#contacts{
+    height: 50vh;
+    background-color: $yellowish-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Media queries for different displays*/
+@media only screen and (max-width: 1024px){
+    #projects{
+        grid-template-columns: repeat(2, minmax(400px, 1fr));
+    }
+}
+
+@media only screen and (max-width: 800px){
+    #projects{
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 4em 0 4em;
+    }
+    #nav-links{
+        display: none;
+    }
+    #hamburger{
+        display: block;
+    }
+}
