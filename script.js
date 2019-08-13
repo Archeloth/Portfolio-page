@@ -1,3 +1,4 @@
+//Hamburger
 const hamburger = document.getElementById('hamburger');
 const dropdownMenu = document.getElementById('dropdown');
 let isClicked = false;
@@ -11,3 +12,5 @@ hamburger.addEventListener('click', ()=>{
         dropdownMenu.style.right = "-100%";
     }
 });
+
+//------------------------------------------------------------

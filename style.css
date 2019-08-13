@@ -131,7 +131,7 @@ a::after {
   position: absolute;
   top: 73%;
   left: -10;
-  background: url(aaa2.svg) no-repeat;
+  background: url(images/aaa2.svg) no-repeat;
   width: 120%;
   height: 50%;
 }
@@ -173,13 +173,17 @@ a::after {
 }
 
 #projects {
-  padding-top: 5rem;
+  padding-top: 15rem;
+  padding-bottom: 10rem;
   height: 100vh;
-  background-color: #8ab9b5;
+  background: -webkit-gradient(linear, left top, right top, from(#8ab9b5), to(#c8c2ae));
+  background: linear-gradient(90deg, #8ab9b5, #c8c2ae);
+  background-size: 150%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(400px, 1fr))[3];
       grid-template-columns: repeat(3, minmax(400px, 1fr));
+  grid-gap: 5vw;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -198,6 +202,7 @@ a::after {
 
 .card-preview {
   height: 70%;
+  min-height: 200px;
   border: 3px solid #2b4141;
   -webkit-box-shadow: 3px 3px 10px black;
           box-shadow: 3px 3px 10px black;
@@ -229,7 +234,12 @@ a::after {
   position: absolute;
   top: 40%;
   left: 30%;
-  z-index: 5;
+  z-index: 2;
+}
+
+.project-image {
+  height: 100%;
+  width: 100%;
 }
 
 .card-description {
@@ -244,14 +254,15 @@ a::after {
   content: "";
   top: 100%;
   left: 0px;
-  background: url(bbb.svg) no-repeat;
+  background: url(images/bbb.svg) no-repeat;
   height: 70%;
   width: 100%;
 }
 
 #contacts {
   height: 40vh;
-  background: linear-gradient(60deg, #2b4141, #c8c2ae 40%);
+  background-color: #2b4141;
+  color: #d6d6d6;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -305,9 +316,9 @@ a::after {
   #projects {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    grid-row-gap: 20vh;
+    grid-row-gap: 30vh;
     height: auto;
-    padding: 5em 0 4em;
+    padding: 5rem 0 10rem;
   }
   #nav-links {
     display: none;
