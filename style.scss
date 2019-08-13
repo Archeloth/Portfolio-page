@@ -58,6 +58,9 @@ a::after {
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }
+img{
+    object-fit: cover;
+}
 #main-icon{
  margin-left: 2vw;   
 }
@@ -110,9 +113,24 @@ a::after {
     display: flex;
     flex-direction: row;
     align-items: center;
+    max-width: 800px;
 }
 .text{
     margin-right: 50px;
+}
+.text .flag{
+    background: linear-gradient(red 30%,white 60%,green) no-repeat;
+    background-clip: text;
+    color: transparent;
+    animation: flag-wave 2s linear infinite alternate;
+}
+@keyframes flag-wave{
+    from{
+        background-position-y: -3px;
+    }
+    to{
+        background-position-y: 3px;
+    }
 }
 .links{
     display: flex;

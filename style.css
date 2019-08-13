@@ -69,6 +69,11 @@ a::after {
   width: 0;
 }
 
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 #main-icon {
   margin-left: 2vw;
 }
@@ -147,10 +152,38 @@ a::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-width: 800px;
 }
 
 .text {
   margin-right: 50px;
+}
+
+.text .flag {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, red), color-stop(60%, white), to(green)) no-repeat;
+  background: linear-gradient(red 30%, white 60%, green) no-repeat;
+  background-clip: text;
+  color: transparent;
+  -webkit-animation: flag-wave 2s linear infinite alternate;
+          animation: flag-wave 2s linear infinite alternate;
+}
+
+@-webkit-keyframes flag-wave {
+  from {
+    background-position-y: -3px;
+  }
+  to {
+    background-position-y: 3px;
+  }
+}
+
+@keyframes flag-wave {
+  from {
+    background-position-y: -3px;
+  }
+  to {
+    background-position-y: 3px;
+  }
 }
 
 .links {
