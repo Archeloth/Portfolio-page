@@ -103,7 +103,7 @@ img{
 #intro::after{
     content: "";
     position: absolute;
-    top: 73%;
+    top: 71%;
     left: -10;
     background: url(images/aaa2.svg) no-repeat;
     width: 120%;
@@ -154,7 +154,7 @@ img{
     background-size: 150%;
     display: grid;
     grid-template-columns: repeat(3, minmax(400px, 1fr));
-    grid-gap: 5vw;
+    grid-gap: 7vw;
     justify-content: center;
     align-content: space-evenly;
 }
